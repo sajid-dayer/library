@@ -1,0 +1,73 @@
+h2 {
+	text-transform: uppercase;
+	color: white;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 1.4em;
+	line-height: 2.8em;
+}
+
+/* Layout */
+.container_24 {
+	margin: 0;
+}
+
+.login-box {
+	background-color: rgba(249, 207, 149, .8);
+	max-width: 540px;
+	margin: 0 auto;
+	position: relative;
+	left: 30px;
+	padding-bottom: 30px;
+	border-radius: 100px 5px 100px;
+	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+	text-align: center;
+}
+
+.login-box .box-header {
+	background-color: rgba(18, 133, 66, 1);
+	margin-top: 0;
+	margin-left:25px;
+	width: 515px;
+	border-radius: 100px 0px 0px 0px;
+}
+
+.login-box label {
+	font-weight: 700;
+	font-size: 1.2em;
+	background-color: rgba(249, 207, 149, 1);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	line-height: 2em;
+}
+
+.login-box input {
+	margin-bottom: 20px;
+	padding: 8px;
+	border: 1px solid rgba(18, 133, 66, 1);
+	border-radius: 20px 0px 20px;
+	font-size: 1.5em;
+	color: green;
+}
+
+
+.login-box button {
+	margin-top: 0px;
+	border: 0;
+	border-radius: 20px 0px 20px;
+	color: white;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 0.8em;
+	letter-spacing: 1px;
+	background-color: rgba(18, 133, 66, .7);
+	cursor:pointer;
+	outline: none;
+}
+
+.login-box button:hover {
+	background-color: rgba(18, 133, 66, 1);
+	border-radius: 1px;
+	transition: 1s;
+}

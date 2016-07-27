@@ -1,0 +1,71 @@
+header span, footer span{
+	font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 3.2em;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+	}
+
+header .pic {
+	height:231px;
+	margin-top: -20px;
+	}
+.grid_9 {
+	margin: 20px 5px 10px 0;
+	font-size:14px;
+	}
+.grid_9 span {
+	font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+	}
+.main{
+	margin-left:5px;
+	}
+.button {
+	background:rgba(0,0,0,.5);
+	color:silver;
+	font-style:strong;
+	padding: 6px;
+	border: 0;
+    border-radius: 2px;
+	font-size: 11px;
+	}
+.button:hover {
+	color: white;
+	background: black;
+	}
+footer p{
+	clear: both;
+	font-size:16px;
+	letter-spacing: 2px;
+	margin:0 0 0 10px;
+	position: relative;
+	top: -15px;
+	}
+.end:hover {
+	color: black;
+	font-weight: bold;
+	}
+.end {
+	text-decoration:none;
+	}
+.container_24 {
+	padding-left: 200px;
+	}
+body {
+	    background: linear-gradient(rgb(104, 234, 204) 10%, rgb(73, 123, 232) 50%);
+	}
+header .login a {
+	float: left;
+	position: absolute;
+	top: 60px;
+	right: 330px;
+	text-decoration:none;
+	font-weight: normal;
+	text-transform:uppercase;
+	}
+header .login a:hover {
+	color: white;
+	}
