@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Log in page</title>
-	<link rel="stylesheet" href="css/log in.css">
-	<script src="js/login.js"></script>
+	<link rel="stylesheet" href="log in.css">
+	<!-- <script src="js/login.js"></script> -->
 </head>
 
 <body>
@@ -30,5 +30,28 @@
 			<a href="#"><p class="small">Forgot your password?</p></a>
 		</div>
 	</div>
+	<script >
+	function validate(){
+	var attempt = 3;
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	if ( username == "srk" && password == "tiny123" || username == "sajid" && password == "dayer" || username == "rk" && password == "sharma"){
+	/* alert ("Login successfully"); */
+	window.location = "home.html"; // Redirecting to other page.
+	return false;
+	}
+	else{
+	attempt --;// Decrementing by one.
+	alert("username or password wrong! You have left "+attempt+" attempt;");
+	// Disabling fields after 3 attempts.
+	if( attempt == 0){
+	document.getElementById("username").disabled = true;
+	document.getElementById("password").disabled = true;
+	document.getElementById("submit").disabled = true;
+	return false;
+	}
+	}
+	}
+	</script>
 </body>
 </html>

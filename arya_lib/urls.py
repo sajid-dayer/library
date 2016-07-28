@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from arya_lib import views
-from django.conf.urls.defaults import patterns
-admin.autodiscover()
-urlpatterns = patterns('',
-    url(r'^$', views.login, name='login'),
-    )
+#from django.conf.urls import patterns
+urlpatterns = [
+url(r'^$', views.login, name='login'),
+]
