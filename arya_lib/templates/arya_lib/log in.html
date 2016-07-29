@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Log in page</title>
+	{% block style_in_head %}
+	<link href="{% static 'css/log in.css' %}" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="log in.css"> -->
+	<!-- <script src="js/login.js"></script> -->
+	{% endblock %}
+</head>
+
+<body>
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">booky</span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" name="username" id="username"/>
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" name="password" id="password"/>
+			<br/>
+			<button type="submit" onclick="validate()">Sign In</button>
+			<br/>
+			<a href="#"><p class="small">Forgot your password?</p></a>
+		</div>
+	</div>
+	<script >
+	function validate(){
+	var attempt = 3;
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	if ( username == "srk" && password == "tiny123" || username == "sajid" && password == "dayer" || username == "rk" && password == "sharma"){
+	/* alert ("Login successfully"); */
+	window.location = "home.html"; // Redirecting to other page.
+	return false;
+	}
+	else{
+	attempt --;// Decrementing by one.
+	alert("username or password wrong! You have left "+attempt+" attempt;");
+	// Disabling fields after 3 attempts.
+	if( attempt == 0){
+	document.getElementById("username").disabled = true;
+	document.getElementById("password").disabled = true;
+	document.getElementById("submit").disabled = true;
+	return false;
+	}
+	}
+	}
+	</script>
+</body>
+</html>
