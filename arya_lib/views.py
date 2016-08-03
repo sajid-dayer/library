@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 from arya_lib.models import *
 def login_page(request):
 	return render(request, 'arya_lib/log in.html',{'var': 'none'})
+def book_issue(request):
+	return render(request,'arya_lib/issue.html')
 def check_user(request):
 	print "done"
 	user_id = request.POST.get('username') 
