@@ -22,20 +22,29 @@
 		</div>
 		<div class="login-box animated fadeInUp">
 			<div class="box-header">
-				<h2>Log In</h2>
+				<h2>LOGIN</h2>
 			</div>
 			{% csrf_token %}
-			<label for="username">Username</label>
-			<br/>
-			<input type="text" name="username" id="username" />
-			<br/>
-			<label for="password">Password</label>
-			<br/>
-			<input type="password" name="password" id="password"  />
-			<br/>
-			<button type="submit" onclick="validate1();">Sign In</button>
-			<br/>
-			<a href="#"><p class="small">Forgot your password?</p></a>
+			<form action='arya_lib/check' method="post">
+			    {% csrf_token %}
+			    {% if next %}
+				<input type="hidden" name="next" value="{{ next }}" />
+				{% endif %}
+				<label for="username">Username</label>
+				<br/>
+				<input type="text" name="username" placeholder="Username" id="username" value="{{ username}}"/>
+				<br/>
+				<label for="password">Password</label>
+				<br/>
+				<input type="password" name="password" id="password" placeholder="Password" value="" />
+				<br/>
+				<button >Sign In</button>
+				<br/>
+				<a href="#"><p class="small">Forgot your password?</p></a>
+			</form>
+			<div class="box-header" style="display: {{var}};background-color: #990000;">
+				<h2 >{{kk}}</h2>
+			</div>
 		</div>
 	</div>
 	<script >
@@ -55,7 +64,9 @@
 			})
 			.done(function(data) {
 				/*console.log(data)*/
+
 				console.log("success");
+				window.location= "arya_lib/home.html";
 			})
 			.fail(function() {
 				console.log("error");

@@ -5,13 +5,19 @@ import json
 from django.contrib.auth import authenticate
 from arya_lib.models import *
 def login_page(request):
-	return render(request, 'arya_lib/log in.html')
+	return render(request, 'arya_lib/log in.html',{'var': 'none'})
 def check_user(request):
-	user_id = request.GET.get('username') 
-	user_pass = request.GET.get('password')
-	response_list ={}
+	print "done"
+	user_id = request.POST.get('username') 
+	user_pass = request.POST.get('password')
 	user = authenticate(username=user_id, password=user_pass)
 	if user is not None:
+		return render(request,'arya_lib/home.html')
+	else:
+		return render(request,'arya_lib/log in.html',{'kk':"wrong password" ,'var': 'block'})
+
+	"""
+	response_list ={}
 		print "wowwlknddnf"
 	print type(user),user_id,user_pass
 	if user_id is None or len(user_id) < 1:
@@ -22,10 +28,9 @@ def check_user(request):
 		b =User_Login_List.objects.filter(username=user_id,password=user_pass).values('id')
 		print "no",b
 		response_list["status"]="False"
-		return HttpResponse(json.dumps(response_list), content_type='application/json')
+		return HttpResponse(json.dumps(response_list), content_type='application/json')"""
 	
 """def home(request):
-	return render(request'arya_lib/home.html')
 def login(request):
 	return view_login(request)
 """
