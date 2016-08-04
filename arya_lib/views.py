@@ -31,8 +31,5 @@ def check_user(request):
 		print "no",b
 		response_list["status"]="False"
 		return HttpResponse(json.dumps(response_list), content_type='application/json')"""
-	
-"""def home(request):
-def login(request):
-	return view_login(request)
-"""
+	# here we have not writing nothing
+
