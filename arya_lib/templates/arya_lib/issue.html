@@ -25,21 +25,25 @@
 			</div>
 			<label for="book name">book name</label>
 			<br/>
-			<input type="text" name="book name" id="book name"/>
+			<input type="text" name="book name" id="book name" placeholder="book name ?" />
+			<br/>
+			<label for="author name"> author name</label>
+			<br/>
+			<input type="text" name="author name" id="author name" placeholder="author name ?" />
 			<br/>
 			<label for="id">id</label>
 			<br/>
-			<input type="text" name="id" id="id"/>
+			<input type="text" name="id" id="id" placeholder="id ?" />
 			<br/>
 			<label for="issue date">Date of issue</label>
 			<br/>
-			<input type="text" name="issue date" id="issue date"/>
+			<input type="text" name="issue date" id="issue date" placeholder="issue date ?" />
 			<br/>
 			<label for="return date">Date of return</label>
 			<br/>
-			<input type="text" name="return date" id="return date"/>
+			<input type="text" name="return date" id="return date" placeholder="return date ? " />
 			<br/>
-			<button type="submit" onclick="validate()">issue</button>
+			<button type="submit" onclick="issue_data()">issue</button>
 			<br/>
 		</div>
 		<div class="home grid_8">
@@ -49,10 +53,31 @@
 			</a>
 		</div>
 		</div>
-		<<script type="text/javascript" r>
-			function wow(){
-				console.log("thtss ");
-			}
+		<script type="text/javascript">
+			function issue_data(){
+				var book_name = document.getElementById("book name");
+				var author_name = document.getElementById("author name");
+				var book_id = document.getElementById("id");
+				var issue_date = document.getElementById("issue date");
+				var return_date = document.getElementById("return date");
+				if ((book_name && author_name && issue_date) != ""){
+					$.ajax({
+						url: 'arya_lib/issue_data',
+						type: 'GET',
+						data: {book_name: 'book_name',author_name:'author_name',
+							book_id:'book_id',issue_date:'issue_date',return_date:'return_date'},
+					})
+					.done(function(data) {
+						alert(data);
+					})
+					.fail(function() {
+						alert(data);
+					})
+					.always(function() {
+						alert("This is mostly happen");
+					});
+					
+				};
 		</script>
 	</body>
 </html>
