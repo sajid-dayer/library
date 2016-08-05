@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>Issue</title>
+		<script src="{% static 'js/jquery.js' %}"></script>
 		<link rel="stylesheet" href="{% static 'css/issue.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/test2.css' %}">
 		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
@@ -62,7 +63,7 @@
 				var return_date = document.getElementById("return date");
 				if ((book_name && author_name && issue_date) != ""){
 					$.ajax({
-						url: 'arya_lib/issue_data',
+						url: 'arya_lib/data_book',
 						type: 'GET',
 						data: {book_name: 'book_name',author_name:'author_name',
 							book_id:'book_id',issue_date:'issue_date',return_date:'return_date'},
@@ -71,12 +72,11 @@
 						alert(data);
 					})
 					.fail(function() {
-						alert(data);
+						alert("your data did'nt insert");
 					})
 					.always(function() {
-						alert("This is mostly happen");
 					});
-					
+					}
 				};
 		</script>
 	</body>

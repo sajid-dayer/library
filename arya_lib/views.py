@@ -19,9 +19,8 @@ def check_user(request):
 		return render(request,'arya_lib/home.html')
 	else:
 		return render(request,'arya_lib/log in.html',{'kk':"wrong password" ,'var': 'block'})
-def book_issue_data():
-	print "thsbdoen"
-	pass
+def data_book(request):
+	return HttpResponse("ok from my side")
 """
 response_list ={}
 	print "wowwlknddnf"
