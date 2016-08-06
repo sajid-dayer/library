@@ -47,20 +47,15 @@
 			</div>
 		</div>
 	</div>
-	<script >
+	<!-- <script >
 		function validate1()
 		{
-			var attempt = 3;
 			var username = document.getElementById("username").value;
 			var password = document.getElementById("password").value;
 			$.ajax({
 				url: 'arya/check',
 				type: 'GET',
-				/*dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',*/
 				data: {"username":username, "password":password},
-				/*data: { csrfmiddlewaretoken:getCSRFTokenValue() },   // < here 
-           		 state:"inactive",*/ 
-          
 			})
 			.done(function(data) {
 				/*console.log(data)*/
@@ -74,45 +69,7 @@
 			.always(function() {
 				console.log("complete");
 			});
-			
-			/*$.ajax({
-              url: '/home',
-              type: 'post',
-              data: {"username":username, "password":password},
-              success: function(datam) {
-              data = datam[0]
-              gaddress = []
-              gaddress = datam;
-                for(var i = 0; i<data.length; i++){
-                    dir = {}
-                    dir["lat"] = parseFloat(data[i]["lat"]);
-                    dir["lng"] = parseFloat(data[i]["lng"]);
-                    neighborhoods.push(dir);
-                    alert("done successfully");
-                }
-              failure: function(){
-                alert('Got an error dude'); 
-              }
-          	};*/
-			
-			/*if ( username == "srk" && password == "tiny123" || username == "sajid" && password == "dayer" || username == "rk" && password == "sharma"){
-			alert ("Login successfully");
-
-			window.location = "home.html"; // Redirecting to other page.
-			return false;
-			}
-			else{
-			attempt --;// Decrementing by one.
-			alert("username or password wrong! You have left "+attempt+" attempt;");
-			// Disabling fields after 3 attempts.
-			if( attempt == 0){
-			document.getElementById("username").disabled = true;
-			document.getElementById("password").disabled = true;
-			document.getElementById("submit").disabled = true;
-			return false;
-			}
-			}*/
-		}
-	</script>
+		};
+	</script> -->
 </body>
 </html>
