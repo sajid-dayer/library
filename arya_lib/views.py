@@ -7,8 +7,6 @@ from django.contrib.auth import authenticate
 from arya_lib.models import *
 def login_page(request):
 	return render(request, 'arya_lib/log in.html',{'var': 'none'})
-def book_issue(request):
-	return render(request,'arya_lib/issue.html')
 def check_user(request):
 	user_id = request.POST.get('username') 
 	user_pass = request.POST.get('password')
@@ -19,8 +17,12 @@ def check_user(request):
 		return render(request,'arya_lib/home.html')
 	else:
 		return render(request,'arya_lib/log in.html',{'kk':"wrong password" ,'var': 'block'})
+def book_issue(request):
+	return render(request,'arya_lib/issue.html')
 def data_book(request):
+	print request.GET.get("book_name")
 	return HttpResponse("ok from my side")
+
 """
 response_list ={}
 	print "wowwlknddnf"

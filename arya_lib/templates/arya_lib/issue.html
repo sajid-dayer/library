@@ -26,11 +26,11 @@
 			</div>
 			<label for="book name">book name</label>
 			<br/>
-			<input type="text" name="book name" id="book name" placeholder="book name ?" />
+			<input type="text" name="book name" id="book_name" placeholder="book name ?" />
 			<br/>
 			<label for="author name"> author name</label>
 			<br/>
-			<input type="text" name="author name" id="author name" placeholder="author name ?" />
+			<input type="text" name="author name" id="author_name" placeholder="author name ?" />
 			<br/>
 			<label for="id">id</label>
 			<br/>
@@ -38,11 +38,11 @@
 			<br/>
 			<label for="issue date">Date of issue</label>
 			<br/>
-			<input type="text" name="issue date" id="issue date" placeholder="issue date ?" />
+			<input type="text" name="issue date" id="issue_date" placeholder="issue date ?" />
 			<br/>
 			<label for="return date">Date of return</label>
 			<br/>
-			<input type="text" name="return date" id="return date" placeholder="return date ? " />
+			<input type="text" name="return date" id="return_date" placeholder="return date ? " />
 			<br/>
 			<button type="submit" onclick="issue_data()">issue</button>
 			<br/>
@@ -56,16 +56,16 @@
 		</div>
 		<script type="text/javascript">
 			function issue_data(){
-				var book_name = document.getElementById("book name");
-				var author_name = document.getElementById("author name");
+				var book_name = document.getElementById("book_name").value;
+				var author_name = document.getElementById("author_name").value;
 				var book_id = document.getElementById("id");
-				var issue_date = document.getElementById("issue date");
-				var return_date = document.getElementById("return date");
+				var issue_date = document.getElementById("issue_date");
+				var return_date = document.getElementById("return_date");
 				if ((book_name && author_name && issue_date) != ""){
 					$.ajax({
 						url: 'arya_lib/data_book',
 						type: 'GET',
-						data: {book_name: 'book_name',author_name:'author_name',
+						data: {book_name: book_name,author_name:'author_name',
 							book_id:'book_id',issue_date:'issue_date',return_date:'return_date'},
 					})
 					.done(function(data) {
