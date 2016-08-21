@@ -17,7 +17,7 @@
 		</header>
 		<div class="main">
 			<div class="issue grid_8">
-			<a href="issue.html"><img src="{% static 'img/iss2.jpg' %}" alt="issue book" class="image" />
+			<a href="#"><img src="{% static 'img/iss2.jpg' %}" alt="issue book" class="image" />
 			<h1>issue</h1></a>
 			</div>
 		<div class="login-box grid_16">
@@ -44,11 +44,11 @@
 			<br/>
 			<input type="text" name="return date" id="return_date" placeholder="return date ? " />
 			<br/>
-			<button type="submit" onclick="issue_data()">issue</button>
+			<button type="submit" id="submit_button" onclick="issue_data()">issue</button>
 			<br/>
 		</div>
 		<div class="home grid_8">
-			<a href="home.html">
+			<a href="home">
 			<img src="{% static 'img/back.jpg' %}" alt="back" />
 			<h1>BACK to HOME</h1>
 			</a>
@@ -69,6 +69,7 @@
 							book_id:book_id,issue_date:issue_date,return_date:return_date},
 					})
 					.done(function(data) {
+						
 						alert(data);
 					})
 					.fail(function() {
@@ -76,9 +77,14 @@
 					})
 					.always(function() {
 					});
-					}
 				}
-				
+			}
+			$("input").click(function(event) {
+				this.placeholder=""
+			})	
+				/*else{
+					alert("Book Name,Author Name,Date Of Issue are mandatory field");
+				}*/
 		</script>
 	</body>
 </html>

@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 from arya_lib.models import *
 def login_page(request):
 	return render(request, 'arya_lib/log in.html',{'var': 'none'})
+def main_page(request):
+	return render(request,'arya_lib/home.html')
 def check_user(request):
 	user_id = request.POST.get('username') 
 	user_pass = request.POST.get('password')
@@ -14,7 +16,8 @@ def check_user(request):
 	auth.login(request, user)
 	"""if user.is_active:"""
 	if user is not None:
-		return render(request,'arya_lib/home.html')
+		"""return render(request,'arya_lib/home.html')"""
+		return HttpResponseRedirect('arya_lib/home')
 	else:
 		return render(request,'arya_lib/log in.html',{'kk':"wrong password" ,'var': 'block'})
 def book_issue_render(request):

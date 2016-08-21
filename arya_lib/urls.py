@@ -7,5 +7,6 @@ url(r'check',views.check_user,name='check_status'),
 url(r'issue',views.book_issue_render,name='book_issue_render'),
 url(r'data_book',views.data_book,name='book_issue_data'),
 url(r'search',views.book_search,name='book_search'),
+url(r'home',views.main_page,name='main_page'),
 
 ]
