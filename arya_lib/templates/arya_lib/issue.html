@@ -17,8 +17,8 @@
 		</header>
 		<div class="main">
 			<div class="issue grid_8">
-			<a href="#"><img src="{% static 'img/iss2.jpg' %}" alt="issue book" class="image" />
-			<h1>issue</h1></a>
+				<a href="#"><img src="{% static 'img/iss2.jpg' %}" alt="issue book" class="image" />
+				<h1>issue</h1></a>
 			</div>
 		<div class="login-box grid_16">
 			<div class="box-header">
@@ -76,12 +76,20 @@
 						alert("your data did'nt insert");
 					})
 					.always(function() {
+						resetAllValues() 
 					});
 				}
+				
+			}
+			function resetAllValues() {
+  					$('.login-box').find('input:text').val('');
 			}
 			$("input").click(function(event) {
 				this.placeholder=""
 			})	
+			$(".issue").click(function(event){
+				resetAllValues()
+			})
 				/*else{
 					alert("Book Name,Author Name,Date Of Issue are mandatory field");
 				}*/

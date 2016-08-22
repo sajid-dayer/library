@@ -16,26 +16,29 @@ def check_user(request):
 	auth.login(request, user)
 	"""if user.is_active:"""
 	if user is not None:
-		"""return render(request,'arya_lib/home.html')"""
-		return HttpResponseRedirect('arya_lib/home')
+		return HttpResponseRedirect('home',{'user':request.user.username})
 	else:
 		return render(request,'arya_lib/log in.html',{'kk':"wrong password" ,'var': 'block'})
 def book_issue_render(request):
+	print request.user.username
 	return render(request,'arya_lib/issue.html')
 def data_book(request):
-	print request.GET.get("book_name")
-	book_data=book_issue()
-	book_data.bookname=request.GET.get("book_name")
-	book_data.author=request.GET.get("author_name")
-	book_data.book_id=request.GET.get("book_id")
-	book_data.issue_date=request.GET.get("issue_date")
-	book_data.return_date=request.GET.get("return_date")
-	book_data.save()
-	return HttpResponse("Data Inserted Succesfully!")
+	try:
+		book_data=book_issue()
+		book_data.user_name=request.user.username
+		book_data.bookname=request.GET.get("book_name")
+		book_data.author=request.GET.get("author_name")
+		book_data.book_id=request.GET.get("book_id")
+		book_data.issue_date=request.GET.get("issue_date")
+		book_data.return_date=request.GET.get("return_date")
+		book_data.save()
+		return HttpResponse("Data Inserted Succesfully!")
+	except Exception as e:
+		return HttpResponse("Problem while inserting data")
 def book_search(request):
 	return render(request,'arya_lib/search.html')
 
-"""
+"""	
 response_list ={}
 	print "wowwlknddnf"
 print type(user),user_id,user_pass

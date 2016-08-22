@@ -61,6 +61,12 @@ body {
 	top:10px;
 	right:25px;
 	}
+.home1 {
+	position:relative;
+	height:20px;
+	top:190px;
+	right:25px;
+	}
 .home img:hover{
 	opacity: 1;
 	}
