@@ -3,16 +3,17 @@
 <html>
 	<head>
 		<title>Search</title>
+		<script src="{% static 'js/jquery.js' %}"></script>
 		<link rel="stylesheet" href="{% static 'css/search.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/960_24_col.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/text.css' %}" />
 	</head>
 	<body>
-	<div class="container_24">
-		<header>
-			<a href="#"><h1 class="uper"><span>booky</span></h1></a>
-		</header>
+		<div class="container_24">
+			<header>
+				<a href="#"><h1 class="uper"><span>booky</span></h1></a>
+			</header>
 			<div class="main">
 				<div class="home1 grid_8">
 					<a href="home">
@@ -26,7 +27,7 @@
 					</div>
 					<label for="book name">book name</label>
 					<br/>
-					<input type="text" name="book name" id="book name"/>
+					<input type="text" name="book name" id="book_name"/>
 					<br/>
 					<label for="author">author</label>
 					<br/>
@@ -37,8 +38,32 @@
 				</div>
 				<div class="search grid_8">
 					<a href="search.html"><img src="{% static 'img/search3.jpg' %}" alt="search book" class="image" />
-					<h1>search</h1></a>
+					<h1>search</h1>
+					</a>
 				</div>
-			</div>
+				
+		</div>
+		<script  type="text/javascript" >
+			function validate (){
+				var bookname=document.getElementById("book_name").value;
+				var author=document.getElementById("author").value;
+				$.ajax({
+					url: 'arya_lib/book_find',
+					type: 'GET',
+					data: {bookname:bookname,author:author},
+				})
+				.done(function(data) {
+					alert(data)
+					console.log("success");
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+				
+			}
+		</script>
 	</body>
 </html>

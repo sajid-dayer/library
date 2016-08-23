@@ -37,6 +37,15 @@ def data_book(request):
 		return HttpResponse("Problem while inserting data")
 def book_search(request):
 	return render(request,'arya_lib/search.html')
+def search_in_db(request):
+	bookname= request.GET.get("bookname")
+	author= request.GET.get("author")
+	book_id=book_list.objects.filter(bookname=bookname,author=author).values('book_id')
+	if book_id != None or book_id != ():
+		return HttpResponse("book found")
+	else:
+		return HttpResponse("book not found")
+
 
 """	
 response_list ={}
